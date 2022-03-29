@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Search Weather
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+  
+    <ion-item>
+      <ion-label>Ville : </ion-label>
+      <ion-input [(ngModel)]="ville"  placeholder="Enter name of city"></ion-input>
+    </ion-item>
+
+    <ion-button  slot="end" (click)="myQuery()" color="primary">
+      Search
+    </ion-button>
+</ion-list>
+ 
+
+<ion-list *ngIf="weather!=null">
+  <ion-label>Ville :  {{weather.name}} </ion-label>
+  <ion-label> Status : {{weather.weather[0]['description']}}</ion-label>
+  <ion-label> Degree : {{(weather.main['temp'])/17.2 | number:'0.2-2'}} </ion-label>
+</ion-list>
+</ion-content>
